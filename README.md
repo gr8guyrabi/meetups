@@ -25,3 +25,8 @@ Creating Meetups project with django and docker
 
 **Note:**
 you don't need to navigate to your project folder. But it's recommended not to exec any command outside of the project folder.
+
+# Create database structure using models
+1. Create a class representing database structure inside models.py in meetups app.
+2. run command `docker exec meetups_web_1 python manage.py makemigrations` to create migration for you models.
+3. run command `docker exec meetups_web_1 python manage.py migrate` to migrate above created migration to database structure.

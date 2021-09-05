@@ -30,3 +30,11 @@ you don't need to navigate to your project folder. But it's recommended not to e
 1. Create a class representing database structure inside models.py in meetups app.
 2. run command `docker exec meetups_web_1 python manage.py makemigrations` to create migration for you models.
 3. run command `docker exec meetups_web_1 python manage.py migrate` to migrate above created migration to database structure.
+
+# Admin
+1. run command `docker exec meetups_web_1 python manage.py createsuperuser`. if you get an error try `docker exec -it meetups_web_1 python manage.py createsuperuser`
+2. follow along to create admin user by adding credentials from terminal.
+3. Go to http://localhost:8000/admin
+
+**Note:**
+you'll need to create your admin credentials to have access to your admin panel. There's no pre-defined admin credentials.

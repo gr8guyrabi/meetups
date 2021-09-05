@@ -38,3 +38,13 @@ you don't need to navigate to your project folder. But it's recommended not to e
 
 **Note:**
 you'll need to create your admin credentials to have access to your admin panel. There's no pre-defined admin credentials.
+
+-----------
+**NOTE:**
+you need to provide extra options to `docker exec --Options meetups_web_1` 
+--Options might include:
+`-i` : Keep STDIN open even if not attached
+`-it` : Allocate a pseudo-tty. Tells Docker to allocate a virtual terminal session within the container (add this when you need to input your choice from terminal)
+For example: `docker exec -it meetups_web_1 ........`
+
+-----------

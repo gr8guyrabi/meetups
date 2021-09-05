@@ -41,10 +41,10 @@ you'll need to create your admin credentials to have access to your admin panel.
 
 -----------
 **NOTE:**
-you need to provide extra options to `docker exec --Options meetups_web_1` 
---Options might include:
-`-i` : Keep STDIN open even if not attached
-`-it` : Allocate a pseudo-tty. Tells Docker to allocate a virtual terminal session within the container (add this when you need to input your choice from terminal)
-For example: `docker exec -it meetups_web_1 ........`
+you need to provide extra options to `docker exec --Options meetups_web_1`  
+--Options might include:  
+`-i` : Keep STDIN open even if not attached  
+`-it` : Allocate a pseudo-tty. Tells Docker to allocate a virtual terminal session within the container (add this when you need to input your choice from terminal)  
+For example: `docker exec -it meetups_web_1 ........`  
 
 -----------

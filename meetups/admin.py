@@ -6,7 +6,7 @@ from .models import Meetup, Location
 
 class MeetupAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug',)
-    list_filter = ('title',)
+    list_filter = ('location',)
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title',)
 

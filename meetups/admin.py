@@ -5,8 +5,8 @@ from .models import Meetup, Location, Participant
 
 
 class MeetupAdmin(admin.ModelAdmin):
-    list_display = ('title', 'location',)
-    list_filter = ('location',)
+    list_display = ('title', 'location', 'date', )
+    list_filter = ('location', 'date',)
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'location')
 

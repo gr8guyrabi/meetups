@@ -1,47 +1,40 @@
+{% extends 'meetups/master/master.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+{% block site_css %}
     <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
-    <title>All Meetups</title>
-</head>
-<body>
-    <header id="main-header">
-        <nav>
-            <a href="{% url 'all-meetups' %}" id="main-logo">Django Meetups</a>
-        </nav>
-        <h1>We got great meetups coming!</h1>
-        <p>Find the one that suits you great.</p>
-    </header>
-    <main>
-        <section>
-            <h2>Upcoming Meetups</h2>
-            <ol>
-                {% for meetup_item in meetups %}
-                    <li class="meetup-item">
-                        <article>
-                            <div class="meetup-summary">
-                                <div class="meetup-image">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="meetup-details">
-                                    <h3>{{ meetup_item.title }}</h3>
-                                    <address>{{ meetup_item.location }}</address>
-                                </div>
+{% endblock %}
+
+{% block site_main_header %}
+    We got great meetups coming!
+{% endblock %}
+    
+{% block site_header_content %}
+    <p>Find the one that suits you great.</p>
+{% endblock %}
+
+{% block site_content %}
+    <section>
+        <h2>Upcoming Meetups</h2>
+        <ol>
+            {% for meetup_item in meetups %}
+                <li class="meetup-item">
+                    <article>
+                        <div class="meetup-summary">
+                            <div class="meetup-image">
+                                <img src="" alt="">
                             </div>
-                            <div class="meetup-actions">
-                                <a href="{% url 'meetup-detail' meetup_item.slug %}" class="btn">More Details</a>
+                            <div class="meetup-details">
+                                <h3>{{ meetup_item.title }}</h3>
+                                <address>{{ meetup_item.location }}</address>
                             </div>
-                        </article>
-                    </li>
-                {% endfor %}
-            </ol>
-        </section>
-    </main>
-</body>
-</html>
+                        </div>
+                        <div class="meetup-actions">
+                            <a href="{% url 'meetup-detail' meetup_item.slug %}" class="btn">More Details</a>
+                        </div>
+                    </article>
+                </li>
+            {% endfor %}
+        </ol>
+    </section>
+{% endblock %}

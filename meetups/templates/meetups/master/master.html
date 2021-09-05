@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    {% block site_css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+    <title>{% block site_title %} All Meetups {% endblock %}</title>
+</head>
+<body>
+    <header id="main-header">
+        <nav>
+            <a href="{% url 'all-meetups' %}" id="main-logo">Django Meetups</a>
+        </nav>
+        <h1>{% block site_main_header %}{% endblock %}</h1>
+        {% block site_header_content %}{% endblock %}
+    </header>
+    <main>
+        {% block site_content %}{% endblock %}
+    </main>
+</body>
+</html>

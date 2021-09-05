@@ -5,10 +5,10 @@ from .models import Meetup, Location
 
 
 class MeetupAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug',)
+    list_display = ('title', 'location',)
     list_filter = ('location',)
     prepopulated_fields = {'slug': ('title',)}
-    search_fields = ('title',)
+    search_fields = ('title', 'location')
 
 
 class LocationAdmin(admin.ModelAdmin):

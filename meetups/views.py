@@ -19,7 +19,14 @@ def index(request):
 def detail(request, meetup_slug):
     try:
         meetup_detail = Meetup.objects.get(slug=meetup_slug)
-        registration_form = RegistrationForm()
+        if request.method == 'GET':
+            registration_form = RegistrationForm()
+        else:
+            registration_form = RegistrationForm(request.POST)
+            if registration_form.is_valid():
+                participant = registration_form.save()
+                meetup_detail.participants.add(participant)
+
         return render(request, 'meetups/detail.html', {
             'meetup_available': True,
             'meetup': meetup_detail,

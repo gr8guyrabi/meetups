@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Meetup, Location
+from .models import Meetup, Location, Participant
 
 # Register your models here.
 
@@ -17,5 +17,11 @@ class LocationAdmin(admin.ModelAdmin):
     search_fields = ('name', 'address', )
 
 
+class ParticipantAdmin(admin.ModelAdmin):
+    list_display = ('email', )
+    search_fields = ('email', )
+
+
 admin.site.register(Meetup, MeetupAdmin)
 admin.site.register(Location, LocationAdmin)
+admin.site.register(Participant, ParticipantAdmin)

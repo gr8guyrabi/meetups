@@ -13,11 +13,11 @@
 {% block site_content %}
     {% if meetup_available %}
         <article>
-            <img src="" alt="">
+            <img src="{{ meetup_image }}" alt="{{ meetup_title }}">
 
             <section id="location">
                 <h2>Meetup Location</h2>
-                <address>This meetup is going to take place in <span>LOCATION</span> (ADDRESS).</address>
+                <address>This meetup is going to take place in <span>{{ meetup_location.name }}</span> ({{ meetup_location.address }}).</address>
             </section>
 
             <section id='details'>

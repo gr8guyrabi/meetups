@@ -16,14 +16,10 @@ def index(request):
 
 def detail(request, meetup_slug):
     try:
-        meetupDetail = Meetup.objects.get(slug=meetup_slug)
-        print(meetupDetail)
+        meetup_detail = Meetup.objects.get(slug=meetup_slug)
         return render(request, 'meetups/detail.html', {
             'meetup_available': True,
-            'meetup_title': meetupDetail.title,
-            'meetup_description': meetupDetail.description,
-            'meetup_image': meetupDetail.image.url,
-            'meetup_location': meetupDetail.location,
+            'meetup': meetup_detail,
         })
     except Exception as e:
         return render(request, 'meetups/detail.html', {

@@ -33,7 +33,7 @@ def detail(request, meetup_slug):
                     email=user_email)
                 if not(user_email_exists):
                     meetup_detail.participants.add(participant)
-                    return redirect('registration-success')
+                    return redirect('registration-success', meetup_slug=meetup_slug)
         return render(request, 'meetups/detail.html', {
             'user_email_exists': user_email_exists,
             'meetup_available': True,
@@ -46,5 +46,6 @@ def detail(request, meetup_slug):
         })
 
 
-def registration_success(request):
-    return render(request, 'meetups/registration_success.html')
+def registration_success(request, meetup_slug):
+    meetup = Meetup.objects.get(slug=meetup_slug)
+    return render(request, 'meetups/registration_success.html', {'organizer_email': meetup.organizer_email})

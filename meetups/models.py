@@ -29,5 +29,5 @@ class Meetup(models.Model):
     location = models.ForeignKey(Location, on_delete=CASCADE)
     participants = models.ManyToManyField(Participant, blank=True, null=True)
 
-    # def __str__(self):
-    #     return f'{self.title}-{self.slug}'
+    def __str__(self):
+        return f'{self.title}-{self.slug}'
